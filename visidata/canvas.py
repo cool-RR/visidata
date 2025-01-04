@@ -11,7 +11,7 @@ from visidata.bezier import bezier
 vd.theme_option('disp_graph_labels', True, 'show axes and legend on graph')
 vd.theme_option('plot_colors', 'green red yellow cyan magenta white 38 136 168', 'list of distinct colors to use for plotting distinct objects')
 vd.theme_option('disp_canvas_charset', ''.join(chr(0x2800+i) for i in range(256)), 'charset to render 2x4 blocks on canvas')
-vd.theme_option('disp_pixel_random', False, 'randomly choose attr from set of pixels instead of most common')
+vd.theme_option('disp_graph_pixel_random', False, 'randomly choose attr from set of pixels instead of most common')
 vd.theme_option('disp_zoom_incr', 2.0, 'amount to multiply current zoomlevel when zooming')
 vd.theme_option('color_graph_hidden', '238 blue', 'color of legend for hidden attribute')
 vd.theme_option('color_graph_selected', 'bold', 'color of selected graph points')
@@ -258,7 +258,7 @@ class Plotter(BaseSheet):
         disp_canvas_charset += (256 - len(disp_canvas_charset)) * disp_canvas_charset[-1]
         if self.pixels:
             cursorBBox = self.plotterCursorBox
-            getPixelAttr = self.getPixelAttrRandom if self.options.disp_pixel_random else self.getPixelAttrMost
+            getPixelAttr = self.getPixelAttrRandom if self.options.disp_graph_pixel_random else self.getPixelAttrMost
 
             for char_y in range(0, self.plotheight//4):
                 for char_x in range(0, self.plotwidth//2):

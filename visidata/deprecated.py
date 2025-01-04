@@ -261,3 +261,5 @@ def toggleKeys(self, cols):
             self.unsetKeys([col])
         else:
             self.setKeys([col])
+
+vd.optalias('disp_pixel_random', 'disp_graph_pixel_random')  #2661
